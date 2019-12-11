@@ -1,0 +1,27 @@
+Name: Nathan Tjoar
+UID: 005081232
+Email: ntjoar@g.ucla.edu
+
+This project includes:
+lab1b.c: A simple linux shell that allows users to pass in commands and do file input-output via system calls as a normal C file would do, but in the form of UNIX.
+Makefile: A general file that builds simpsh from lab1b.c. Additionally, this file contains options to "check", which runs smoke tests and reports whether or not it was a success, a "clean", which removes all files not to be compressed into tarball, and a "dist" to build and compress lab1b.c, README, and the makefile into a tarball for submission.
+
+Smoke Tests:
+For this project, I have included a test for each exit code that I have used to ensure proper software usage:
+rdonly: testing basic read only. This is just a general test to make sure the file would be able to open properly.
+rdonlyF: testing failure of file open. This test tested on a file that would not exist in the program and would result in a failure return code. 
+wronly: testing basic wronly. This is just a general test to make sure the file would be able to open properly.
+wronlyF: testing failure of file open. This test tested on a file that would not exist in the program and would result in a failure return code. 
+verbose: testing verbose feature. This test only checks on whether or not the lab properly had.
+command: Simple ensuring command works properly.
+flag: Testing flags if they can work well.
+abort: Ensuring abort actually aborts with proper values
+
+
+Struggles of the project:
+I had difficulty implementing the wait portion of the program and making sure it printed out everything properly. I seemed to have difficulty understanding just how to improvise the lookback loop and 
+
+Tutorials Used:
+(pipe) https://www.geeksforgeeks.org/pipe-system-call/
+(wait) https://www.geeksforgeeks.org/wait-system-call-c/
+(itoa) http://www.cplusplus.com/reference/cstdlib/itoa/

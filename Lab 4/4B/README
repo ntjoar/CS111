@@ -1,0 +1,18 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Source Files:
+    lab4b.c: C file to run on Beaglebone that can report temperature sensor data and takes in commands LOG, START, STOP, OFF, PERIOD, and SCALE
+    Makefile: File to compile, build an easy to port tarball file, and clean up any files made by the makefile command.
+    README: File containing all answers to lab questions, description of lab resources used, and source files.
+    smoke.sh: test helper to run smoke test values.
+
+Sources Used:
+(open2) http://man7.org/linux/man-pages/man2/open.2.html
+(poll2) http://man7.org/linux/man-pages/man2/poll.2.html
+(fcntl2) http://man7.org/linux/man-pages/man2/fcntl.2.html
+(Grove - Temperature Sensor V1.2) http://wiki.seeedstudio.com/Grove-Temperature_Sensor_V1.2/
+(libmraa) https://iotdk.intel.com/docs/master/mraa/
+(GPIO) https://drive.google.com/drive/folders/0B6dyEb8VXZo-N3hVcVI0UFpWSVk
+(dprintf) https://linux.die.net/man/3/dprintf

@@ -1,0 +1,26 @@
+Name: Nathan Tjoar
+UID: 005081232
+Email: ntjoar@g.ucla.edu
+
+This project includes:
+lab1a.c: C source code that currently takes 4 arguments. --rdonly and --wronly opens files for reading and writing respectively. --command allows users to issue commands which then get translated into system calls. --verbose gives users a list of their arguments and each parameter for said argument.
+Makefile: A general file that builds lab1a from lab1b.c. Additionally, this file contains options to "check", which runs smoke tests and reports whether or not it was a success, a "clean", which removes all files not to be compressed into tarball, and a "dist" to build and compress lab1a.c, README, and the makefile into a tarball for submission.
+Smoke Tests:
+For this project, I have included a test for each exit code that I have used to ensure proper software usage:
+rdonly: testing basic read only. This is just a general test to make sure the file would be able to open properly.
+rdonlyF: testing failure of file open. This test tested on a file that would not exist in the program and would result in a failure return code. 
+wronly: testing basic wronly. This is just a general test to make sure the file would be able to open properly.
+wronlyF: testing failure of file open. This test tested on a file that would not exist in the program and would result in a failure return code. 
+verbose: testing verbose feature. This test only checks on whether or not the lab properly had.
+command: Simple ensuring command works properly.
+
+Struggles of the project:
+In this project, I had the most trouble with getting proper usage of software. I found it difficult to understand command completely, and got stumped mostly on that section. I was not sure on how to formulate a proper solution in that area at first, but found it slowly.
+
+Tutorials Used:
+(optind) https://linux.die.net/man/3/optind
+(fork) https://www.geeksforgeeks.org/fork-system-call/
+(fork2) http://man7.org/linux/man-pages/man2/fork.2.html
+(pipe7) http://man7.org/linux/man-pages/man7/pipe.7.html
+(COW) https://stackoverflow.com/questions/628938/what-is-copy-on-write
+(execvp) https://linux.die.net/man/3/execvp

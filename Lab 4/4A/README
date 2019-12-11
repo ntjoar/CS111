@@ -1,0 +1,15 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Serial No.: BBGW18031285
+MAC address: 2c:f7:f1:06:79:04
+
+Source Files:
+    my_beaglebone.jpg: a selfie of me holding your assembled Beaglebone.
+    connected.png: a screen shot from a USB terminal command session connected with name and configured network access.
+    copy.png: a screen shot from a local session in which I copied a hello world program from my laptop to the Beaglebone.
+    build_run.png: a screen shot from a WIFI SSH session in which I build and run a trivial program.
+    git.png: a screen shot from a WIFI SSH session in which I install git and clone a repository.
+    Makefile: File to build an easy to port tarball file clean up any files made by the makefile command.
+    README: File containing all answers to lab questions, description of lab resources used, and source files.

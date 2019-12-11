@@ -1,0 +1,12 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Source Files:
+    lab3b.py: Python script to run and parse csv files and report errors in file systems.
+    l3b.sh: Helper script to run the python code with given inputs.
+    Makefile: File to compile program, build an easy to port tarball file, and clean up any files made by the makefile command.
+    README: File containing all answers to lab questions, description of lab resources used, and source files.
+
+Sources:
+(EXT2) http://www.nongnu.org/ext2-doc/ext2.html

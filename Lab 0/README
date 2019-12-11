@@ -1,0 +1,29 @@
+Name: Nathan Tjoar
+UID: 005081232
+Email: ntjoar@g.ucla.edu
+
+This project includes:
+lab0.c: C source code from input to output if --input and --output flags are given. --segfault will force a segfault. --catch will register a SIGSEV handler to catch the segfault. --dump-core dumps core on segmentation faults.
+Makefile: A general file that builds lab0 from lab0.c. Additionally, this file contains options to "check", which runs smoke tests and reports whether or not it was a success, a "clean", which removes all files not to be compressed into tarball, and a "dist" to build and compress lab0.c, backtrace.png, breakpoint.png, and the makefile into a tarball for submission.
+backtrace.png: A screencapture of the gdb backtrace when done due to a segmentation fault that was forced intentionally.
+breakpoint.png: a screen capture of a variable's value tested in order to check whether or not it had the correct values being outputted at that point.
+
+Smoke Tests:
+For this project, I have included a test for each exit code that I have used to ensure proper software usage:
+Beta: Simple testing of whether or not copying works by checking input and output.
+Core: Ensuring exit code 0 for successful copy between files.
+IO: Testing for exit code 0 with a proper copy from stdin and stdout.
+Unregistered: Testing for exit code 1 with an unregistered argument.
+Validity: Testing for exit code 2 with an invalid file.
+Output: Testing for exit code 3 with no writing permission
+Catcher: Ensuring exit code 4 for segfaults
+Segfault testing: Ensuring proper exit code for a segfault without a catch.
+
+Struggles of the project:
+In this project, I mostly had difficulty with starting off the project, as I felt lost to begin with. The documentation I had read had made sense, but I did not feel that I understood everything completely. With a few references to online sources listed below, I was able to continue with and do the project properly. There were a few syntax stumbles, but nothing too serious.
+
+Tutorials Used:
+(GDB) https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf
+(File Descriptors) https://www.computerhope.com/jargon/f/file-descriptor.htm
+(Getopt_long) https://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Option-Example.html
+(C Documentations) Man pages

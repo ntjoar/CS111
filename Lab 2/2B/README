@@ -1,0 +1,57 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Source Files:
+    Program Files:
+        lab2_add.c: C file that implements and tests a shared variable add function while allowing for multithreading, and locking mechanisms
+        SortedList.h: Header file describing the interfaces for linked list operations
+        SortedList.c: C file that implements header file functions in order to control the linked list
+        lab2_list.c: C file that implements and tests a shared variable linked list while allowing for multithreading, and locking mechanisms
+    Instructional Files:
+        s.sh & a.sh: File containing tests to run for the 'make test' command
+        Makefile: File to compile program and run tests if needed, generate graphs, and build an easy to port tarball file
+        README: File containing all answeres to lab questions, description of lab resources used, and source files.
+    Data Reading Files:
+        lab2_add.csv: Collection of data points received from running lab2_add with different parameters
+        lab2b_list.csv & lab2_list.csv: Collection of data points received from running lab2_list with different parameters
+    Graphs obtained by gnuplot:
+        lab2b_1.png: throughput vs. number of threads for mutex and spin-lock synchronized list operations.
+        lab2b_2.png: mean time per mutex wait and mean time per operation for mutex-synchronized list operations.
+        lab2b_3.png: successful iterations vs. threads for each synchronization method.
+        lab2b_4.png: throughput vs. number of threads for mutex synchronized partitioned lists.
+        lab2b_5.png: throughput vs. number of threads for spin-lock-synchronized partitioned lists.
+
+Questions: 
+2.3.1
+For 1 and 2 thread lists,
+1 thread, mutex - for a large list, most time goes to list ops because thread does not have to yield
+1 thread, spin - most time goes to list ops because thread does not have to yield
+2 thread, mutex - for a large list, most time goes to list ops because time there is greater than that of lock and unlock overhead
+2 thread, spin - This could go both ways. In one case, more spinning is done, which  would increase spin time and on the other hand, we note that list ops could be done more.
+
+Locking and spinning ops are most expensive because they contain a lot of overhead and tie up other threads waiting for it.
+
+In high-thread spin locks, most time will be on spinning since one thread will hold one resource at a time
+
+In a high-thread mutex, most time is done doing list operations because threads are just put to sleep and scheduled to wake up later.
+
+2.3.2
+Spin locks eat up most cycles as it is the code  that runs several time in the while loop and as such, the other threads will not be able to obtain the  lock. It becomes more expensive as thread count increases because of more threads waiting for a lock that will never let go.
+
+2.3.3
+The average lock-wait time rises dramatically with number of threads because there ends up being more threads waiting to grab the lock and polling for the lock.
+
+Completion time per op rises with more threads as more list ops need to be run before program can finish
+
+Completion time rises less dramatically because time taken for single thread to undergo list ops is independent of total number of threads
+
+2.3.4
+With more lists, parallelism is more possible because we allow more threads to access different parts of the list. Throughput in this sense should continue to increase until hardware bottlenecks or there is zero contention between threads. From then on, slope will either slow down or decrease, respectively. 
+Not the case, n-way partition list spends more time locking a single list with 1/N threads.
+
+Sources:
+(Hash function) http://www.cse.yorku.ca/~oz/hash.html
+(Exit codes) https://en.cppreference.com/w/cpp/utility/program/EXIT_status
+(Extern) https://embeddedartistry.com/blog/2017/4/4/extern-c
+(Makefile) Lab 6 from 35L

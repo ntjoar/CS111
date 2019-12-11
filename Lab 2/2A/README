@@ -1,0 +1,60 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Source Files:
+    Program Files:
+        lab2_add.c: C file that implements and tests a shared variable add function while allowing for multithreading, and locking mechanisms
+        SortedList.h: Header file describing the interfaces for linked list operations
+        SortedList.c: C file that implements header file functions in order to control the linked list
+        lab2_list.c: C file that implements and tests a shared variable linked list while allowing for multithreading, and locking mechanisms
+    Instructional Files:
+        s.sh: File containing tests to run for the 'make test' command
+        Makefile: File to compile program and run tests if needed, generate graphs, and build an easy to port tarball file
+        README: File containing all answeres to lab questions, description of lab resources used, and source files.
+    Data Reading Files:
+        lab2_add.csv: Collection of data points received from running lab2_add with different parameters
+        lab2_list.csv: Collection of data points received from running lab2_list with different parameters
+    Graphs obtained by gnuplot:
+        lab2_add-1.png: Graph of threads and iterations required to generate a failure (with and without yields)
+        lab2_add-2.png: Graph of average time per operation with and without yields
+        lab2_add-3.png: Graph of average time per (single threaded) operation vs. the number of iterations
+        lab2_add-4.png: Graph of threads and iterations that can run successfully with yields under each of the synchronization options
+        lab2_add-5.png: Graph of average time per (protected) operation vs. the number of threads
+        lab2_list-1.png: Graph of average time per (single threaded) unprotected operation vs. number of iterations (illustrating the correction of the per-operation cost for the list length)
+        lab2_list-2.png: Graph of threads and iterations required to generate a failure (with and without yields)
+        lab2_list-3.png: Graph of iterations that can run (protected) without failure
+        lab2_list-4.png: Graph of (length-adjusted) cost per operation vs the number of threads for the various synchronization options
+
+Questions: 
+2.1.1
+When we have multiple iterations, we have an issue with threads unable to finish their respective tasks within the timeslice before being preemted. This preemtion allows for race conditions as another thread will enter the critical section.
+With smaller iterations, it is much more likely for a thread to finish its task before being preemted.
+
+2.1.2
+Yielding allows for a context switch which yields higher overhead and forces threads to schedule accordingly.
+Additional time here is the overhead for context switching, saving register states, updating time, and calling interrupts.
+Not possible at all, the wall time would end up eating up too much memory for this to be practical in an actual per yield time seperation.
+
+2.1.3
+In general, more time is spent doing useful tasks than context switching, meaning there is less overhead and the overall time drops.
+As iterations increase, we will have a decrease in the meaningfulness of overhead time, meaning that the more iterations we have, the closer to real time we get.
+
+2.1.4
+Since switching is more rare in the case of smaller tasks, we have less likeliness of a race condition. As a result we get more similar behavior between tasks.
+The three protected operations cause a lot of overhead similarly in question 2.1.2. This overhead ends up piling up and resulting in a great effect on our calculations.
+
+---
+2.2.1
+From analysis of the graphs, we note that trend of cost per op for both locks change wit number of threads, but spin-lock increases in time at a greater rate than the mutex locks. It notes that the context switch time for spin-lock is higher than that of mutex lock.
+Both curves seem to be going exponentially up as their increase of context switching also increases. 
+
+2.2.2
+In this graph, we see a linear increase in both, but again a higher rate with the spin-lock mainly because spin-lock overhead tends to be higher than that of Mutex locking overhead.
+
+Sources:
+(Builtins for Atomic Memory Access) https://gcc.gnu.org/onlinedocs/gcc-4.1.0/gcc/Atomic-Builtins.html
+(rand and srand) https://www.geeksforgeeks.org/rand-and-srand-in-ccpp/
+(Exit codes) https://en.cppreference.com/w/cpp/utility/program/EXIT_status
+(Extern) https://embeddedartistry.com/blog/2017/4/4/extern-c
+(Makefile) Lab 6 from 35L

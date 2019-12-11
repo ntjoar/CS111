@@ -1,0 +1,11 @@
+NAME: Nathan Tjoar
+EMAIL: ntjoar@g.ucla.edu
+UID: 005081232
+
+Source Files:
+    lab4c_tcp.c: C file to run on Beaglebone that can report temperature sensor data and takes in commands LOG, START, STOP, OFF, PERIOD, and SCALE and runs a TCP connection to the server given
+    lab4c_tls.c: C file built off of lab4c_tcp.c but opens a TLS connection to the server instead.
+    Makefile: File to compile, build an easy to port tarball file, and clean up any files made by the makefile command.
+    README: File containing all answers to lab questions, description of lab resources used, and source files.
+
+Sources Used:
